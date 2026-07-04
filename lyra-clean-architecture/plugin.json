@@ -1,0 +1,12 @@
+{
+  "name": "lyra-clean-architecture",
+  "version": "1.0.0",
+  "description": "Unified architecture decision-tree skill (Clean + Hexagonal + DDD) that defaults to less architecture and reaches for more only when the cost of not having it is real. Works across TypeScript, Python, Go, Java, Kotlin. TDD-integrated by construction.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

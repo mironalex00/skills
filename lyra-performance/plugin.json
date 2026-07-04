@@ -1,0 +1,12 @@
+{
+  "name": "lyra-performance",
+  "version": "1.0.0",
+  "description": "Council-synthesized, measurement-first performance optimization across the full stack. Enforces the profiling loop, ships weak/correct pairs for N+1, indexing, pagination, caching, bundle splitting, lazy loading, and memoization, and blocks optimization-without-benchmark as a CRITICAL violation. Integrates with lyra-analyze-codebase and lyra-database.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

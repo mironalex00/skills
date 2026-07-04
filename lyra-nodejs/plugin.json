@@ -1,0 +1,12 @@
+{
+  "name": "lyra-nodejs",
+  "version": "1.0.0",
+  "description": "Unified Node.js backend skill grounded in the event loop mental model. Covers framework selection (Express/Fastify/NestJS), async pitfalls, stream backpressure, worker threads, security hardening, database integration, and performance. Integrates with lyra-tdd and lyra-clean-architecture. Supersedes nodejs-best-practices and nodejs-backend-patterns.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

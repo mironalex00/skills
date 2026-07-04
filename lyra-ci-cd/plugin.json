@@ -1,0 +1,12 @@
+{
+  "name": "lyra-ci-cd",
+  "version": "1.0.0",
+  "description": "Language-agnostic CI/CD pipeline enforcement across GitHub Actions, GitLab CI, and CircleCI. Quality gates, environment promotion, deployment strategies, secrets management, caching, parallelization, rollback, and anti-patterns. Integrates with lyra-tdd, lyra-code-review, lyra-e2e-testing.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

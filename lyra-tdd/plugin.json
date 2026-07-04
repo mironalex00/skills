@@ -1,0 +1,12 @@
+{
+  "name": "lyra-tdd",
+  "version": "1.0.0",
+  "description": "Test-Driven Development with a 100% coverage gate and anti-dummy-test enforcement. Language-agnostic: TS, JS, Python, PHP, Go, Rust, Java, C#, Ruby.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

@@ -127,7 +127,7 @@ mode: detail
 quality_score: 9
 tags: [legal, contract, risk-analysis, claude]
 created: 2026-01-15
-author: Alexandru Miron
+author: Lyra
 ---
 
 # Claude: Legal Contract Risk Review
