@@ -44,7 +44,7 @@ The thesis: composable, portable, expertise-encoded units beat brittle one-shot 
 
 ## Composability: the real unlock
 
-Skills compose. This is the flywheel: each skill makes the others more valuable. The collection isn't 224 isolated tools — it's a toolkit where the parts fit together.
+Skills compose. This is the flywheel: each skill makes the others more valuable. The collection isn't isolated tools — it's a toolkit where the parts fit together.
 
 **Example chain:**
 
@@ -85,4 +85,21 @@ This consistency is what makes skills composable: any skill can reference any ot
 
 ## The collection grows
 
-0 is a beginning, not a ceiling. New skills get added as new domains, platforms, and workflows are encoded. The bar for inclusion: a skill must do one thing well, follow the standard format, and compose cleanly with the rest of the collection.
+This is a beginning, not a ceiling. New skills get added as new domains, platforms, and workflows are encoded. The bar for inclusion: a skill must do one thing well, follow the standard format, and compose cleanly with the rest of the collection.
+
+---
+
+## The complete catalog
+
+**Here are all the skills**, organized by category. Each entry links to its `SKILL.md` — relative paths so links work in the web viewer, on GitHub, and inside the extracted ZIP.
+
+| Category                            | Count |
+| ----------------------------------- | ----- |
+| [Skills & Tooling](#skills-tooling) | 1     |
+| **Total**                           | **1** |
+
+### Skills & Tooling
+
+_1 skills_
+
+- **[lyra](./lyra/SKILL.md)** — Elite AI specialist that transforms raw user inputs into precision-crafted prompts for any major AI platform — text.
