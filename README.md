@@ -16,6 +16,26 @@ The thesis: composable, portable, expertise-encoded units beat brittle one-shot 
 
 ---
 
+## Installation
+
+You can install this collection directly into your project using one of the following commands:
+
+```bash
+pnpm dlx skills add https://github.com/mironalex00/skills
+# or
+npx skills add https://github.com/mironalex00/skills
+```
+
+If you prefer to install only a specific skill, you can specify it using the `--skill` option:
+
+```bash
+pnpm dlx skills add https://github.com/mironalex00/skills --skill <skill_name>
+# or
+npx skills add https://github.com/mironalex00/skills --skill <skill_name>
+```
+
+---
+
 ## How to use a skill
 
 1. **Find the right skill** — scan the catalog below, or invoke `Skill(command="find-skills")` to discover what's available
