@@ -162,3 +162,11 @@ This is a beginning, not a ceiling. New skills get added as new domains, platfor
 
 - **[lyra-performance](./lyra-performance/SKILL.md)** — Measurement-first optimization across the full stack. No change without a baseline number.
 - **[lyra-ci-cd](./lyra-ci-cd/SKILL.md)** — CI/CD pipelines that are fast, safe, and reversible. All three required; pick two and you've picked none.
+
+---
+
+## License
+
+Copyright (c) 2026 Alexandru Miron
+
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
