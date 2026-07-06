@@ -25,31 +25,31 @@ NoSQL databases (MongoDB, Redis, DynamoDB) — these are out of scope; treat the
 
 ## Rules at a glance
 
-| Rule | Impact | Summary |
-|---|---|---|
-| 1 | HIGH | Match database to workload |
-| 2 | CRITICAL | Normalize to 3NF, denormalize on purpose |
-| 3 | CRITICAL | Enforce integrity at DB level |
-| 4 | CRITICAL | Every FK gets an index |
-| 5 | HIGH | Narrowest correct type |
-| 6 | HIGH | Unique constraint on natural keys |
-| 7 | MEDIUM | CHECK over ENUM |
-| 8 | HIGH | No SELECT * |
-| 9 | CRITICAL | Always parameterize |
-| 10 | CRITICAL | Eliminate N+1 |
-| 11 | CRITICAL | Run EXPLAIN before optimizing |
-| 12 | HIGH | Covering indexes for hot queries |
-| 13 | HIGH | No functions on indexed columns |
-| 14 | MEDIUM | Keyset pagination |
-| 15 | CRITICAL | Wrap multi-step writes in transaction |
-| 16 | HIGH | Choose isolation level deliberately |
-| 17 | CRITICAL | No external calls in transactions |
-| 18 | CRITICAL | Expand-contract migrations |
-| 19 | CRITICAL | Every migration has rollback plan |
-| 20 | HIGH | Never lock large tables |
-| 21 | CRITICAL | Always use connection pools |
-| 22 | CRITICAL | Set query timeouts |
+| Rule | Impact   | Summary                                  |
+| ---- | -------- | ---------------------------------------- |
+| 1    | HIGH     | Match database to workload               |
+| 2    | CRITICAL | Normalize to 3NF, denormalize on purpose |
+| 3    | CRITICAL | Enforce integrity at DB level            |
+| 4    | CRITICAL | Every FK gets an index                   |
+| 5    | HIGH     | Narrowest correct type                   |
+| 6    | HIGH     | Unique constraint on natural keys        |
+| 7    | MEDIUM   | CHECK over ENUM                          |
+| 8    | HIGH     | No SELECT \*                             |
+| 9    | CRITICAL | Always parameterize                      |
+| 10   | CRITICAL | Eliminate N+1                            |
+| 11   | CRITICAL | Run EXPLAIN before optimizing            |
+| 12   | HIGH     | Covering indexes for hot queries         |
+| 13   | HIGH     | No functions on indexed columns          |
+| 14   | MEDIUM   | Keyset pagination                        |
+| 15   | CRITICAL | Wrap multi-step writes in transaction    |
+| 16   | HIGH     | Choose isolation level deliberately      |
+| 17   | CRITICAL | No external calls in transactions        |
+| 18   | CRITICAL | Expand-contract migrations               |
+| 19   | CRITICAL | Every migration has rollback plan        |
+| 20   | HIGH     | Never lock large tables                  |
+| 21   | CRITICAL | Always use connection pools              |
+| 22   | CRITICAL | Set query timeouts                       |
 
 **12 CRITICAL rules. 8 HIGH rules. 2 MEDIUM rules. Zero room for "we'll fix it later."**
 
-*Part of the [13-skill collection](../README.md) — council-synthesized skills that improve on their predecessors.*
+_Part of the [skill collection](../README.md) — council-synthesized skills that improve on their predecessors._

@@ -1,7 +1,7 @@
 {
   "name": "lyra-e2e-testing",
   "version": "1.0.0",
-  "description": "Council-synthesized E2E discipline: Playwright-first but tool-agnostic. Accessible-locator selectors, flaky-test elimination, test-data factories, sharding, and artifact capture — integrated with lyra-tdd (unit layer) and lyra-ci-cd (pipeline). Replaces and improves e2e-testing.",
+  "description": "Council-synthesized E2E discipline: Playwright-first but tool-agnostic. Accessible-locator selectors, flaky-test elimination, test-data factories, sharding, and artifact capture \u2014 integrated with lyra-tdd (unit layer) and lyra-ci-cd (pipeline). Replaces and improves e2e-testing.",
   "author": {
     "name": "Alexandru Miron",
     "email": "miron.alexandru.00@gmail.com",

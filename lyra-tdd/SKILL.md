@@ -20,31 +20,31 @@ State the behavior in one sentence ("Given X, when Y, then Z"), list inputs, out
 
 Write one failing test, confirm it fails for the right reason (assertion, not compile error), write the minimum code to pass, refactor with the test green. Never batch — batching is test-after-the-fact in a TDD costume.
 
-| Language | Run one test | Coverage |
-|---|---|---|
-| TS/JS | `vitest -t "name"` | `vitest run --coverage.enabled` |
-| Python | `pytest -k name` | `pytest --cov=<pkg> --cov-branch --cov-report=term-missing` |
-| PHP | `pest --filter=name` | `pest --coverage --min=100` |
-| Go | `go test -run TestName` | `go test -coverprofile=cover.out ./...` |
-| Rust | `cargo test name` | `cargo llvm-cov --fail-under-lines 100` |
-| Java | `mvn -Dtest=Class#method test` | `mvn test jacoco:report` |
-| C# | `dotnet test --filter Name` | `coverlet /p:Threshold=100` |
-| Ruby | `rspec -e "name"` | `SimpleCov` + `minimum_coverage 100` |
+| Language | Run one test                   | Coverage                                                    |
+| -------- | ------------------------------ | ----------------------------------------------------------- |
+| TS/JS    | `vitest -t "name"`             | `vitest run --coverage.enabled`                             |
+| Python   | `pytest -k name`               | `pytest --cov=<pkg> --cov-branch --cov-report=term-missing` |
+| PHP      | `pest --filter=name`           | `pest --coverage --min=100`                                 |
+| Go       | `go test -run TestName`        | `go test -coverprofile=cover.out ./...`                     |
+| Rust     | `cargo test name`              | `cargo llvm-cov --fail-under-lines 100`                     |
+| Java     | `mvn -Dtest=Class#method test` | `mvn test jacoco:report`                                    |
+| C#       | `dotnet test --filter Name`    | `coverlet /p:Threshold=100`                                 |
+| Ruby     | `rspec -e "name"`              | `SimpleCov` + `minimum_coverage 100`                        |
 
 ### 3. 100% coverage is the floor, not the goal
 
 Line=100 with branch=80 means you have holes. Require 100% branches as the floor, 100% lines as the secondary gate, and a mutation score ≥ 95% as the truth check — surviving mutants are dummy tests wearing a 100%-coverage costume. Documented exclusions only: generated code, feature-flag-gated code, and type-system-unreachable branches. Each exclusion gets a comment naming the reason. Everything else is covered or it does not merge.
 
-| Language | Coverage | Mutation |
-|---|---|---|
-| TS/JS | vitest --coverage / jest --coverage | Stryker |
-| Python | pytest-cov + coverage.py | mutmut or cosmic-ray |
-| PHP | Pest/PHPUnit --coverage | Infection (`--min-msi=95`) |
-| Go | go test -coverprofile | go-mutesting |
-| Rust | cargo-tarpaulin / cargo-llvm-cov | cargo-mutants |
-| Java | JaCoCo | PIT |
-| C# | coverlet | Stryker.NET |
-| Ruby | SimpleCov | mutant |
+| Language | Coverage                            | Mutation                   |
+| -------- | ----------------------------------- | -------------------------- |
+| TS/JS    | vitest --coverage / jest --coverage | Stryker                    |
+| Python   | pytest-cov + coverage.py            | mutmut or cosmic-ray       |
+| PHP      | Pest/PHPUnit --coverage             | Infection (`--min-msi=95`) |
+| Go       | go test -coverprofile               | go-mutesting               |
+| Rust     | cargo-tarpaulin / cargo-llvm-cov    | cargo-mutants              |
+| Java     | JaCoCo                              | PIT                        |
+| C#       | coverlet                            | Stryker.NET                |
+| Ruby     | SimpleCov                           | mutant                     |
 
 Mutation is slow — run it nightly in CI, not on every push. Coverage runs on every push.
 
@@ -71,16 +71,16 @@ If a test's only assertion is `assert True`, `expect(true).toBe(true)`, or `.toB
 
 ```typescript
 // bad
-it('calculates total', () => {
+it("calculates total", () => {
   calculateTotal([1, 2, 3]);
   expect(true).toBe(true); // function could return anything
 });
 
 // good
-it('returns the sum of line items', () => {
+it("returns the sum of line items", () => {
   expect(calculateTotal([1, 2, 3])).toBe(6);
 });
-it('returns 0 for an empty cart', () => {
+it("returns 0 for an empty cart", () => {
   expect(calculateTotal([])).toBe(0);
 });
 ```
@@ -98,7 +98,7 @@ expect(db.find()).toEqual(user); // tests the mock, not the service
 const db = { find: vi.fn().mockReturnValue(user) };
 const result = service.getUser(42);
 expect(db.find).toHaveBeenCalledWith(42); // verifies the call
-expect(result).toEqual(user);             // verifies the transformation
+expect(result).toEqual(user); // verifies the transformation
 ```
 
 ### 7. Every test asserts at least one observable outcome
@@ -133,4 +133,4 @@ Run mutation testing. Every surviving mutant is a test that happens to pass. Fix
 
 ---
 
-*Part of the [13-skill collection](../README.md).*
+_Part of the [skill collection](../README.md)._

@@ -3,7 +3,7 @@ name: lyra-analyze-codebase
 description: "Read-only codebase analysis across architecture, security, performance, and code quality, producing a severity-ranked report with evidence-backed findings."
 metadata:
   version: "1.0.0"
-  author: Alexandru Miron
+  author: "Alexandru Miron"
 compatibility: "Read-only tools only (Read, Grep, Glob, LS, non-mutating Bash). Never Edit/Write/MultiEdit. Optional: lyra-debug for bug root-cause, lyra-clean-architecture for architecture assessment, lyra-code-review for diff-level review."
 ---
 
@@ -123,4 +123,4 @@ When you find bugs, point to `lyra-debug` with the specific files and symptoms; 
 
 ---
 
-_Part of the [13-skill collection](../README.md)._
+_Part of the [skill collection](../README.md)._

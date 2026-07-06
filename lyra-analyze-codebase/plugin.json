@@ -1,7 +1,7 @@
 {
   "name": "lyra-analyze-codebase",
   "version": "1.0.0",
-  "description": "MANDATORY codebase analysis skill. Single unified, language-agnostic, read-only skill covering architecture, security, performance, and code quality. Produces structured reports with P0–P3 severity-ranked findings. Five-phase workflow: map → patterns → risks → prioritize → report. Integrates with lyra-debug and lyra-clean-architecture. Unifies and supersedes analyze-codebase and analyze-project.",
+  "description": "MANDATORY codebase analysis skill. Single unified, language-agnostic, read-only skill covering architecture, security, performance, and code quality. Produces structured reports with P0\u2013P3 severity-ranked findings. Five-phase workflow: map \u2192 patterns \u2192 risks \u2192 prioritize \u2192 report. Integrates with lyra-debug and lyra-clean-architecture. Unifies and supersedes analyze-codebase and analyze-project.",
   "author": {
     "name": "Alexandru Miron",
     "email": "miron.alexandru.00@gmail.com",

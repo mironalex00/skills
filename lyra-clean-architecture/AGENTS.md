@@ -6,7 +6,8 @@
 
 ## Abstract
 
-This skill walks a top-down decision tree — NONE → Layered → Hexagonal → DDD — so a project reaches for more architecture only when the cost of not having it is real. The Dependency Rule (dependencies point inward, toward business policy) is the one principle that unifies all four levels. It is a default-off skill: the lightest option that fits is the correct one, and architecture can always be added later but rarely removed.
+This skill walks a top-down decision tree — NONE → Layered → Hexagonal → DDD — so a project reaches for more architecture only when the cost of not having it is real. The Dependency Rule (dependencies point inward, toward business policy) is the one principle that unifies all four levels.
+It is a default-off skill: the lightest option that fits is the correct one, and architecture can always be added later but rarely removed.
 
 ## Invariants
 

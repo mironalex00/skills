@@ -11,7 +11,8 @@ July 2026
 
 ## Abstract
 
-lyra-debug applies the scientific method to every defect, from a unit-test failure to a prod-only race, treating a bug as the gap between your mental model and the system's actual behavior. It is tool-light and language-agnostic, leaning on disciplined reproduction, one change per iteration, and root-cause analysis over symptom-fixing. The point is to make the next bug cheaper than the last one.
+lyra-debug applies the scientific method to every defect, from a unit-test failure to a prod-only race, treating a bug as the gap between your mental model and the system's actual behavior. 
+It is tool-light and language-agnostic, leaning on disciplined reproduction, one change per iteration, and root-cause analysis over symptom-fixing. The point is to make the next bug cheaper than the last one.
 
 ---
 
@@ -106,4 +107,4 @@ Three load-bearing properties hold the skill up. A change that preserves them is
 - SKILL.md is the source of truth for behavior; this file is the source of truth for editing. Keep them in lockstep; the rule count is 12 in both.
 - The three invariants are load-bearing. A change that appears to weaken any of them deserves a second look — most often it signals the rule was misunderstood, not that the skill needs to flex.
 - Examples in SKILL.md use Go, TypeScript, shell, and prose. When adding one, pick the language that best shows the rule, not the one that matches its neighbors.
-- This is part of the Alexandru Miron; sibling skills follow the same maintenance shape. Edit this file the way you would edit theirs.
+- This is part of the Collection; sibling skills follow the same maintenance shape. Edit this file the way you would edit theirs.

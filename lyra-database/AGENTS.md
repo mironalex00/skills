@@ -6,7 +6,8 @@
 
 ## Abstract
 
-Database engineering rules for Postgres, MySQL, and SQLite — schema design, query construction, optimization, transactions, migrations, and connection pooling. A handful of rules block merge because they cause data loss or outages; the rest is judgment. Cite the rule number, don't argue taste.
+Database engineering rules for Postgres, MySQL, and SQLite — schema design, query construction, optimization, transactions, migrations, and connection pooling.
+A handful of rules block merge because they cause data loss or outages; the rest is judgment. Cite the rule number, don't argue taste.
 
 ## Invariants
 

@@ -1,7 +1,7 @@
 {
   "name": "lyra-debug",
   "version": "1.0.0",
-  "description": "MANDATORY debugging discipline. One unified methodology that replaces debug, debugging-strategies, debug-tools, and bug-hunter. Enforces the scientific method (hypothesis → test → conclude), binary search localization, rubber-duck model-checking, log-then-trace for prod-only bugs, root-cause analysis (5 Whys), and TDD-integrated regression tests. Language-agnostic: TS, JS, Python, PHP, Go, Rust, Java, C#, Ruby. Hard anti-patterns block the three classic sins: changing multiple things at once, debugging by coincidence, and fixing symptoms instead of causes.",
+  "description": "MANDATORY debugging discipline. One unified methodology that replaces debug, debugging-strategies, debug-tools, and bug-hunter. Enforces the scientific method (hypothesis \u2192 test \u2192 conclude), binary search localization, rubber-duck model-checking, log-then-trace for prod-only bugs, root-cause analysis (5 Whys), and TDD-integrated regression tests. Language-agnostic: TS, JS, Python, PHP, Go, Rust, Java, C#, Ruby. Hard anti-patterns block the three classic sins: changing multiple things at once, debugging by coincidence, and fixing symptoms instead of causes.",
   "author": {
     "name": "Alexandru Miron",
     "email": "miron.alexandru.00@gmail.com",

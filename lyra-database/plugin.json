@@ -1,7 +1,7 @@
 {
   "name": "lyra-database",
   "version": "1.0.0",
-  "description": "Council-refined database engineering rules for PostgreSQL, MySQL, and SQLite. Twenty-two rules across schema design, query construction, optimization, transactions, migration safety, and connection management — each with an impact level, WEAK-vs-CORRECT SQL pair, and database-specific tags. Blocks merge on CRITICAL violations. Supersedes mysql-patterns.",
+  "description": "Council-refined database engineering rules for PostgreSQL, MySQL, and SQLite. Twenty-two rules across schema design, query construction, optimization, transactions, migration safety, and connection management \u2014 each with an impact level, WEAK-vs-CORRECT SQL pair, and database-specific tags. Blocks merge on CRITICAL violations. Supersedes mysql-patterns.",
   "author": {
     "name": "Alexandru Miron",
     "email": "miron.alexandru.00@gmail.com",

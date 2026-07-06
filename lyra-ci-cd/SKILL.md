@@ -10,11 +10,11 @@ compatibility: "No tools required. Optional: CI platform CLI (gh, glab, circleci
 
 CI/CD pipeline rules that hold across GitHub Actions, GitLab CI, and CircleCI. The pipeline is the source of truth: stages gate each other in cost order, quality gates block merge, promotion moves one artifact through dev → staging → prod, and every deploy has a tested rollback. Caching and parallelization keep the loop fast; secrets stay out of code and logs. The three Lyra gate skills plug in as non-optional stages.
 
-| Gate | Lyra skill | Stage | Blocks merge when |
-|---|---|---|---|
-| Test | `lyra-tdd` | `test` | Branch coverage < 100%, dummy tests, mutation MSI < 95% |
-| Review | `lyra-code-review` | Pre-merge | Any P0 finding, unresolved P1 without written justification |
-| E2E | `lyra-e2e-testing` | Post-staging, pre-prod | E2E suite fails on staging |
+| Gate   | Lyra skill         | Stage                  | Blocks merge when                                           |
+| ------ | ------------------ | ---------------------- | ----------------------------------------------------------- |
+| Test   | `lyra-tdd`         | `test`                 | Branch coverage < 100%, dummy tests, mutation MSI < 95%     |
+| Review | `lyra-code-review` | Pre-merge              | Any P0 finding, unresolved P1 without written justification |
+| E2E    | `lyra-e2e-testing` | Post-staging, pre-prod | E2E suite fails on staging                                  |
 
 ## The rules
 
@@ -61,11 +61,11 @@ Staging is automatic on merge to main; prod requires a version tag plus human ap
 
 ### 4. Match deployment strategy to risk
 
-| Strategy | When | Rollback |
-|---|---|---|
-| Rolling | Stateless services, backward-compatible changes | Re-deploy previous image |
-| Blue-green | Zero-downtime, instant rollback needed | Switch traffic back to idle env |
-| Canary | High-risk, uncertain impact | Stop canary, traffic auto-reverts |
+| Strategy   | When                                            | Rollback                          |
+| ---------- | ----------------------------------------------- | --------------------------------- |
+| Rolling    | Stateless services, backward-compatible changes | Re-deploy previous image          |
+| Blue-green | Zero-downtime, instant rollback needed          | Switch traffic back to idle env   |
+| Canary     | High-risk, uncertain impact                     | Stop canary, traffic auto-reverts |
 
 Canary steps 5% → 25% → 50% → 100% with health checks at each stage; blue-green keeps the previous environment warm for 30 minutes after cutover.
 
@@ -99,4 +99,4 @@ Each pipeline emits duration per stage, pass/fail per stage, artifact hash, depl
 
 ---
 
-*Part of the [13-skill collection](../README.md).*
+_Part of the [skill collection](../README.md)._

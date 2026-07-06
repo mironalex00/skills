@@ -11,7 +11,7 @@ July 2026
 
 ## Abstract
 
-lyra-code-review is the pre-merge review gate for the Alexandru Miron. It walks one checklist across seven categories, labels every finding P0 through P3, and ends in a single verdict with explicit merge consequences. Its differentiator is the anti-dummy-test gate: hollow tests that pass without asserting real behavior are treated as P0s, because coverage theater is worse than no tests.
+lyra-code-review is the pre-merge review gate for the Lyra collection. It walks one checklist across seven categories, labels every finding P0 through P3, and ends in a single verdict with explicit merge consequences. Its differentiator is the anti-dummy-test gate: hollow tests that pass without asserting real behavior are treated as P0s, because coverage theater is worse than no tests.
 
 ---
 
@@ -116,4 +116,4 @@ Three properties hold the skill together; break any of them and the gate quietly
 - If a new dummy-test pattern appears in the wild, add it to rule 8 — but only if materially different from the existing six. The gate's value is being scannable, not exhaustive.
 - The verdict ladder is intentionally coarse. Resist adding P0.5 or "P1 with a wink" — either the finding blocks, or it doesn't.
 
-_Part of the [13-skill collection](../README.md)._
+_Part of the [skill collection](../README.md)._

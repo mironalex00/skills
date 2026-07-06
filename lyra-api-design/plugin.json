@@ -1,7 +1,7 @@
 {
   "name": "lyra-api-design",
   "version": "1.0.0",
-  "description": "Design APIs as contracts, not afterthoughts. Language-agnostic rules spanning REST, GraphQL, and gRPC — resource modeling, URL design, HTTP semantics, status codes, versioning, pagination, filtering, sorting, error envelopes, rate limiting, auth. OpenAPI/JSON Schema first. Backwards-compatibility enforced (expand, don't break). Anti-pattern hit-list rejected on sight. API-as-a-product mindset with DX, docs, and SDK generation. Integrates with lyra-nodejs and lyra-code-review. Supersedes api-design-expert.",
+  "description": "Design APIs as contracts, not afterthoughts. Language-agnostic rules spanning REST, GraphQL, and gRPC \u2014 resource modeling, URL design, HTTP semantics, status codes, versioning, pagination, filtering, sorting, error envelopes, rate limiting, auth. OpenAPI/JSON Schema first. Backwards-compatibility enforced (expand, don't break). Anti-pattern hit-list rejected on sight. API-as-a-product mindset with DX, docs, and SDK generation. Integrates with lyra-nodejs and lyra-code-review. Supersedes api-design-expert.",
   "author": {
     "name": "Alexandru Miron",
     "email": "miron.alexandru.00@gmail.com",

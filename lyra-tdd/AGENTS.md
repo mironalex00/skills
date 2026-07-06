@@ -11,7 +11,8 @@
 
 lyra-tdd is a test-driven development skill with a coverage gate that catches
 dummy tests — not just line coverage, but branch coverage plus mutation testing
-across nine languages. It is maintained as part of the 13-skill Alexandru Miron.
+across nine languages. 
+It is maintained as part of the skill Lyra collection.
 What sets it apart is the anti-dummy-test rule set: ten rules that block the
 easy routes to a green suite that asserts nothing.
 
