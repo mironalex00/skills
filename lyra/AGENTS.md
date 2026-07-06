@@ -1,6 +1,6 @@
 # lyra
 
-**Version 1.1.0**
+**Version 1.2.0**
 Alexandru Miron
 July 2026
 
@@ -98,12 +98,13 @@ Four properties hold the skill together. Break any of them and one of the two sp
 
 The next agent's contract — read before editing the rule set.
 
-**Adding a rule.** Number it sequentially in the correct half (prompt optimization lives at 1–6, code engineering at 7–9), give it a *The rule* / *When editing* / *Test for violation* triple, and update SKILL.md and this file in the same edit. Bump the minor version.
+**Adding a rule.** Number it sequentially in the correct half (prompt optimization lives at 1–6, code engineering at 7–9), give it a _The rule_ / _When editing_ / _Test for violation_ triple, and update SKILL.md and this file in the same edit. Bump the minor version.
 
 **Editing a rule.** Wording-only edits are a patch bump. Changes to a rule's claim or its test for violation are a minor bump. Keep the SKILL.md description and the AGENTS.md maintainer framing aligned — same rule, two audiences.
 
 **Deleting a rule.** Don't. Renumbering breaks the composition map in `references/related-skills.md` and any external citations. If a rule no longer applies, mark it deprecated in place with a reason, then plan a major-version removal.
 
-**Versioning.** `1.4.0` is the current contract. A change to rule count or order is a major bump; substantive edits to a single rule are minor; wording edits are patch. Update the version line at the top of this file and the SKILL.md front matter in the same commit.
+**Versioning.** `1.2.0` is the current contract. A change to rule count or order is a major bump; substantive edits to a single rule are minor; wording edits are patch. Update the version line at the top of this file and the SKILL.md front matter in the same commit.
 
-**Cross-references.** The twelve sibling skills are `lyra-tdd`, `lyra-clean-code`, `lyra-clean-architecture`, `lyra-code-review`, `lyra-debug`, `lyra-analyze-codebase`, `lyra-nodejs`, `lyra-api-design`, `lyra-e2e-testing`, `lyra-performance`, `lyra-ci-cd`, `lyra-database`. Rule 9 routes to five of them directly; the full map lives in `references/related-skills.md`, and changes to a sibling's rule surface should trigger a re-read of that file.
+**Cross-references.** The twelve sibling skills are `lyra-tdd`, `lyra-clean-code`, `lyra-clean-architecture`, `lyra-code-review`, `lyra-debug`, `lyra-analyze-codebase`, `lyra-nodejs`, `lyra-api-design`, `lyra-e2e-testing`, `lyra-performance`, `lyra-ci-cd`, `lyra-database`.
+Rule 9 routes to five of them directly; the full map lives in `references/related-skills.md`, and changes to a sibling's rule surface should trigger a re-read of that file.

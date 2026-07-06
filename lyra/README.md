@@ -5,4 +5,4 @@ Turns vague requests into precision prompts for any AI model, and produces plan-
 **Reach for it when:** optimizing a prompt, writing or refactoring code, designing an architecture, or preparing a prompt for image/video generation.
 **Don't:** one-off trivial tasks where finding the skill takes longer than doing the task.
 
-*Ships with the [13-skill collection](../README.md) — 12 companion skills so you never have a missing dependency.*
+_Ships with the [skill collection](../README.md) — skills so you never have a missing dependency._

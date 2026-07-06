@@ -12,27 +12,7 @@ A skill is a packaged capability for an AI agent — a `SKILL.md` file with inst
 
 Raw prompts are brittle. You write a great prompt for one task, forget it, and reinvent it next time. **Skills fix this**: they capture expertise in a reusable, composable format. The collection exists so that instead of prompting from scratch every time, you invoke a specialist that already knows the domain — prompt optimization, TDD, clean architecture, debugging, database engineering, and twelve others.
 
-The thesis: composable, portable, expertise-encoded units beat brittle one-shot prompting. Each skill makes the others more valuable.
-
----
-
-## Installation
-
-You can install this collection directly into your project using one of the following commands:
-
-```bash
-pnpm dlx skills add https://github.com/mironalex00/skills
-# or
-npx skills add https://github.com/mironalex00/skills
-```
-
-If you prefer to install only a specific skill, you can specify it using the `--skill` option:
-
-```bash
-pnpm dlx skills add https://github.com/mironalex00/skills --skill <skill_name>
-# or
-npx skills add https://github.com/mironalex00/skills --skill <skill_name>
-```
+The thesis: composable, portable, expertise-encoded units beat brittle one-shot prompting. Each skill makes the others more valuable. The fifteen skills in this collection were built or curated to chain behind Lyra: Lyra plans, a specialist executes, Lyra verifies.
 
 ---
 
@@ -67,12 +47,13 @@ Skills compose. This is the flywheel: each skill makes the others more valuable.
 
 **Example chain:**
 
-1. **lyra** (`Skill(command="lyra")`) deconstructs a vague request and produces an execution plan — files, order, test strategy
-2. **lyra-clean-architecture** picks the right structural pattern for the plan
-3. **lyra-tdd** writes tests first, implementation second, at 100% coverage
-4. **lyra-code-review** runs the pre-merge checklist before declaring done
-
-One prompt, four skills, one finished feature. That's the promise.
+1. **Skill** (`Skill(command="skill")`) deconstructs a vague request and produces an execution plan — files, order, test strategy
+2. **Other skills** 
+    - picks the right structural pattern for the plan
+    - writes tests first, implementation second, at 100% coverage 
+    - runs the pre-merge checklist before declaring done
+    
+One prompt, multiple skills involved, one finished feature. That's the promise.
 
 ---
 
@@ -114,7 +95,7 @@ This is a beginning, not a ceiling. New skills get added as new domains, platfor
 
 ## The complete catalog
 
-**All 13 skills**, organized by category. Each entry links to its `SKILL.md` — relative paths so links work in the web viewer, on GitHub, and inside the extracted ZIP.
+**All skills**, organized by category. Each entry links to its `SKILL.md` — relative paths so links work in the web viewer, on GitHub, or wherever you want to show them.
 
 | Category | Count |
 |---|---:|
@@ -123,7 +104,9 @@ This is a beginning, not a ceiling. New skills get added as new domains, platfor
 | [Debugging & Analysis](#debugging--analysis) | 2 |
 | [Implementation Specializations](#implementation-specializations) | 4 |
 | [Operations & Performance](#operations--performance) | 2 |
-| **Total** | **13** |
+| [Documentation](#documentation) | 1 |
+| [Deliberation](#deliberation) | 1 |
+| **Total** | **15** |
 
 ### Prompt & Code Engineering
 
@@ -163,10 +146,14 @@ This is a beginning, not a ceiling. New skills get added as new domains, platfor
 - **[lyra-performance](./lyra-performance/SKILL.md)** — Measurement-first optimization across the full stack. No change without a baseline number.
 - **[lyra-ci-cd](./lyra-ci-cd/SKILL.md)** — CI/CD pipelines that are fast, safe, and reversible. All three required; pick two and you've picked none.
 
----
+### Documentation
 
-## License
+*1 skill*
 
-Copyright (c) 2026 Alexandru Miron
+- **[lyra-docs](./lyra-docs/SKILL.md)** — Code documentation generator. Reads a codebase and writes a `docs/` folder with a directory tree, general index, and per-module docs. Every claim cites a file and line. No hallucinations, no slop.
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+### Deliberation
+
+*1 skill*
+
+- **[lyra-council](./lyra-council/SKILL.md)** — Five-advisor deliberation engine. Spawns five subagents in parallel (Contrarian, First Principles, Expansionist, Outsider, Executor), they peer-review anonymously, a chairman synthesizes a verdict. Sessions saved to `.lyra/council/` for future reference.

@@ -3,6 +3,7 @@
 Canonical templates for tuning an optimized prompt to its target model. Each section gives the optimal structure, when to use it, and one worked example. When the user names a platform (or it's clearly implied by the task), build the final prompt on that platform's template.
 
 ## Table of contents
+
 1. [ChatGPT / GPT-5](#chatgpt--gpt-5)
 2. [Claude](#claude)
 3. [Gemini](#gemini)
@@ -18,17 +19,20 @@ Canonical templates for tuning an optimized prompt to its target model. Each sec
 ## ChatGPT / GPT-5
 
 **Optimal structure:**
+
 ```
 You are [role].
 Context: [background].
 Task: [specific].
 Format: [structure]
 ```
-+ markdown rendering assumed.
+
+- markdown rendering assumed.
 
 **When to use:** General-purpose tasks, instruction-following, content generation, structured outputs. GPT-5 responds well to explicit role assignment and markdown-formatted deliverables.
 
 **Worked example — technical writing:**
+
 ```
 You are a senior technical writer specializing in developer documentation.
 Context: We're releasing a new authentication SDK. Audience is backend
@@ -47,6 +51,7 @@ and a callout block at the top linking to the full API reference.
 ## Claude
 
 **Optimal structure:**
+
 ```
 Given [context], analyze [subject] using [framework], provide [deliverable]
 considering [constraints].
@@ -55,6 +60,7 @@ considering [constraints].
 **When to use:** Long-context analysis, document review, nuanced reasoning, tasks needing careful step-by-step thinking, safety-sensitive content. Claude rewards explicit frameworks and explicit constraints.
 
 **Worked example — analysis:**
+
 ```
 Given this 40-page product requirements document (attached), analyze the
 proposed feature set using the Kano model, provide a prioritized roadmap
@@ -69,6 +75,7 @@ each other or with the stated constraints.
 ## Gemini
 
 **Optimal structure:**
+
 ```
 Compare [A] vs [B] across [dimensions]. Create [output] that [criteria].
 ```
@@ -76,6 +83,7 @@ Compare [A] vs [B] across [dimensions]. Create [output] that [criteria].
 **When to use:** Comparison tasks, multi-source synthesis, multimodal inputs (text + images), tasks benefiting from Google's search-grounded knowledge. Gemini excels at weighing alternatives.
 
 **Worked example — decision support:**
+
 ```
 Compare PostgreSQL vs. MongoDB vs. DynamoDB across these dimensions: data
 model fit, scaling characteristics, query flexibility, operational burden,
@@ -91,6 +99,7 @@ runner-up.
 ## Kimi
 
 **Optimal structure:**
+
 ```
 You are [expert]. Context: [detailed]. Objective: [precise]. Reason
 stepwise, account for edge cases, produce [schema].
@@ -99,6 +108,7 @@ stepwise, account for edge cases, produce [schema].
 **When to use:** Long-context Chinese-language tasks, document QA, tasks requiring explicit stepwise reasoning. Kimi handles very long inputs well and rewards edge-case enumeration.
 
 **Worked example — legal/contract review:**
+
 ```
 You are a contract review expert specializing in SaaS agreements under
 English law. Context: The attached MSA has a 36-month initial term, auto-
@@ -117,6 +127,7 @@ produce a JSON array where each element has: clause_number, risk_level
 ## DeepSeek
 
 **Optimal structure:**
+
 ```
 Act as [specialist]. Given [technical inputs], solve [problem] using
 explicit reasoning + constraints. Return [schema].
@@ -125,6 +136,7 @@ explicit reasoning + constraints. Return [schema].
 **When to use:** Technical/engineering problems, math, coding, reasoning-heavy tasks where you want the model to show its work. DeepSeek responds well to "explicit reasoning" instructions and strict output schemas.
 
 **Worked example — algorithm design:**
+
 ```
 Act as a distributed systems engineer. Given the requirement to build an
 idempotent payment webhook receiver that handles 10k req/s with at-least-
@@ -141,6 +153,7 @@ pseudocode_for_hot_path, and failure_modes_with_mitigations.
 ## Qwen (Vision / Multimodal)
 
 **Optimal structure:**
+
 ```
 Context: [scene/environment]. Core Subject: [detailed focal point].
 Visual Style: [aesthetic/artistic medium]. Technical Specs: [lighting,
@@ -150,6 +163,7 @@ composition, lens, resolution, aspect ratio].
 **When to use:** Image generation and image understanding tasks targeting Qwen-VL or Qwen image models. Spatial and technical specs matter more than narrative.
 
 **Worked example — image generation:**
+
 ```
 Context: A quiet Kyoto teahouse interior at dusk, tatami flooring, shoji
 screens softly glowing, a low lacquered table.
@@ -169,6 +183,7 @@ aspect ratio, 4K resolution, subtle film grain.
 ## Google Veo (Video)
 
 **Optimal structure:**
+
 ```
 Cinematic Framing: [Shot type, angle]. Camera Motion: [Pan, tilt, dolly,
 tracking]. Subject Action: [Fluid, continuous movement]. Environment:
@@ -179,6 +194,7 @@ physics consistency].
 **When to use:** Cinematic video generation. Veo is sensitive to camera language and temporal consistency — be explicit about motion and physics.
 
 **Worked example — short cinematic clip:**
+
 ```
 Cinematic Framing: Medium-wide shot, slightly low angle, subject framed
 left-of-center following rule of thirds.
@@ -203,6 +219,7 @@ Maintain temporal consistency on the woman's face and coat across all
 ## Minimax / Hailuo AI (Video)
 
 **Optimal structure:**
+
 ```
 Subject & Micro-expressions: [Highly detailed character + subtle emotional
 shifts]. Dynamic Action: [Primary movement + realistic physics]. Camera:
@@ -213,6 +230,7 @@ textures, depth of field].
 **When to use:** Character-driven video where facial performance and physical realism matter. Hailuo/Minimax is tuned for emotive subjects and naturalistic physics.
 
 **Worked example — character moment:**
+
 ```
 Subject & Micro-expressions: A man in his early 60s, weathered face,
 grey stubble, deep-set brown eyes. He's seated at a kitchen table. Over
@@ -240,15 +258,15 @@ kitchen softly out of focus but recognizable. 6 seconds, 24fps.
 
 If the user hasn't named a platform, pick based on the task:
 
-| Task signal | Default platform |
-|---|---|
-| General writing, structured outputs, broad instruction-following | ChatGPT / GPT-5 |
-| Long-document analysis, careful reasoning, safety-sensitive | Claude |
-| Comparisons, multi-source synthesis, search-grounded | Gemini |
-| Long Chinese-language context, document QA | Kimi |
-| Hard technical/engineering/math problems, visible reasoning | DeepSeek |
-| Image generation (any) | Qwen (or platform-native image model) |
-| Cinematic video with camera language | Google Veo |
-| Character/emotive video with facial performance | Minimax / Hailuo |
+| Task signal                                                      | Default platform                      |
+| ---------------------------------------------------------------- | ------------------------------------- |
+| General writing, structured outputs, broad instruction-following | ChatGPT / GPT-5                       |
+| Long-document analysis, careful reasoning, safety-sensitive      | Claude                                |
+| Comparisons, multi-source synthesis, search-grounded             | Gemini                                |
+| Long Chinese-language context, document QA                       | Kimi                                  |
+| Hard technical/engineering/math problems, visible reasoning      | DeepSeek                              |
+| Image generation (any)                                           | Qwen (or platform-native image model) |
+| Cinematic video with camera language                             | Google Veo                            |
+| Character/emotive video with facial performance                  | Minimax / Hailuo                      |
 
 Always tell the user which platform you optimized for and why. If their use case could fit two platforms, offer a second variant tuned to the alternative.

@@ -2,7 +2,7 @@
 name: lyra
 description: "Prompt optimization and code engineering. Turns vague requests into precision prompts for any AI model, and produces plan-first, test-driven code at 100% coverage. Use it whenever prompt quality or code quality matters."
 metadata:
-  version: "1.1.0"
+  version: "1.2.0"
   author: "Alexandru Miron"
 compatibility: "None for prompt optimization. Code engineering works across TS, Python, PHP, Go, Rust, Java, C#, Ruby."
 ---
@@ -17,7 +17,7 @@ Two things, depending on what you ask for.
 
 **Code engineering:** you ask for code, it gives you an execution plan first — file by file, test strategy included — and waits for your approval. Then it writes tests first, implementation second, and ships at 100% coverage. No dummy tests, no `expect(true).toBe(true)`, no catch-all try/catch. It knows TypeScript, Python, PHP, Go, Rust, Java, C#, and Ruby, and the idioms for their major frameworks.
 
-For code tasks it composes with the [13-skill collection](../README.md) — 12 skills (lyra-tdd, lyra-clean-code, lyra-clean-architecture, lyra-code-review, lyra-debug, lyra-analyze-codebase, lyra-nodejs, lyra-api-design, lyra-e2e-testing, lyra-performance, lyra-ci-cd, lyra-database) that ship alongside it so you never have a missing dependency.
+For code tasks it composes with the [skill collection](../README.md) — (lyra-tdd, lyra-clean-code, lyra-clean-architecture, lyra-code-review, lyra-debug, lyra-analyze-codebase, lyra-nodejs, lyra-api-design, lyra-e2e-testing, lyra-performance, lyra-ci-cd, lyra-database) that ship alongside it so you never have a missing dependency.
 
 ## Prompt optimization
 
@@ -57,7 +57,10 @@ Red → Green → Refactor. Every line of production code justified by a test th
 
 ### 9. Compose with the collection
 
-Don't reinvent what the collection skills already do. For architecture, invoke lyra-clean-architecture. For TDD patterns, lyra-tdd. For code review, lyra-code-review. For debugging, lyra-debug. For codebase analysis, lyra-analyze-codebase. See `references/related-skills.md` for the full map.
+Don't reinvent what the collection skills already do. For architecture, invoke lyra-clean-architecture.
+For TDD patterns, lyra-tdd.
+For code review, lyra-code-review. For debugging, lyra-debug. For codebase analysis, lyra-analyze-codebase.
+For documentation, lyra-docs. See `references/related-skills.md` for the full map.
 
 ## Safeguards
 

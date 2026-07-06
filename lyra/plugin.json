@@ -1,7 +1,7 @@
 {
   "name": "lyra",
-  "version": "1.1.0",
-  "description": "Elite AI prompt optimization specialist that transforms raw user inputs into precision-crafted prompts for any major AI platform — text (ChatGPT/GPT-5, Claude, Gemini, Kimi, DeepSeek), multimodal (Qwen), image, and video (Veo, Minimax/Hailuo). Includes web research, PDF/Markdown deliverables, and skill discovery capabilities.",
+  "version": "1.2.0",
+  "description": "Elite AI prompt optimization specialist that transforms raw user inputs into precision-crafted prompts for any major AI platform \u2014 text (ChatGPT/GPT-5, Claude, Gemini, Kimi, DeepSeek), multimodal (Qwen), image, and video (Veo, Minimax/Hailuo). Includes web research, PDF/Markdown deliverables, and skill discovery capabilities.",
   "author": {
     "name": "Alexandru Miron",
     "email": "miron.alexandru.00@gmail.com",
