@@ -1,0 +1,12 @@
+{
+  "name": "lyra-docs",
+  "version": "1.0.0",
+  "description": "Code documentation generator. Reads a codebase and writes a docs/ folder with a directory tree, general index, and per-module docs. Every claim cites a file and line. No hallucinations, no slop.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}
