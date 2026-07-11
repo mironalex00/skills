@@ -1,0 +1,12 @@
+{
+  "name": "lyra-bug-hunter",
+  "version": "1.0.0",
+  "description": "Adversarial bug hunting for runtime behavior: Recon, Hunter, Skeptic, and Referee roles find, challenge, and confirm real bugs with evidence discipline, then fix them one verified commit at a time. Scopes to full tree, path, branch diff, PR, or staged files. Integrates with lyra-security-appsec, lyra-ci-cd-automation, lyra-de-slop.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

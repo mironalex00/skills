@@ -1,0 +1,12 @@
+{
+  "name": "lyra-security-containers",
+  "version": "1.0.0",
+  "description": "Container runtime hardening with Podman: rootless + non-root layering, cap-drop=all, read-only rootfs, seccomp/SELinux kept enforcing, userns=auto isolation, socket-mount prohibition, network least privilege, limits as DoS containment, minimal images, scan-and-rebuild lifecycle, and a diagnose-don't-disable debugging ladder. Integrates with lyra-podman-images, lyra-podman-deploy, lyra-security-secrets.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

@@ -53,3 +53,6 @@ NoSQL databases (MongoDB, Redis, DynamoDB) — these are out of scope; treat the
 **12 CRITICAL rules. 8 HIGH rules. 2 MEDIUM rules. Zero room for "we'll fix it later."**
 
 _Part of the [skill collection](../README.md) — council-synthesized skills that improve on their predecessors._
+---
+
+_Part of the [skill collection](../README.md)._

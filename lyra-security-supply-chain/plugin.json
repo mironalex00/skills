@@ -1,0 +1,12 @@
+{
+  "name": "lyra-security-supply-chain",
+  "version": "1.0.0",
+  "description": "Supply-chain security by mechanism: enforced lockfiles, contained install scripts, release-age cooldown against worm-speed attacks, digest/SHA pinning, SBOM inventory, keyless signing with deploy-time verification, provenance attestations, hardened CI, registry hygiene, and a rehearsed compromise drill. Integrates with lyra-ci-cd-automation, lyra-podman-images, lyra-security-secrets.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

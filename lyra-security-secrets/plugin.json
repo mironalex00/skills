@@ -1,0 +1,12 @@
+{
+  "name": "lyra-security-secrets",
+  "version": "1.0.0",
+  "description": "Secrets lifecycle management: git prohibition with rotate-before-cleanup, three-layer scanning, .env hygiene, storage hierarchy from managed stores to file-mounted container secrets, OIDC identities over static keys, issuance-time scoping, rehearsed rotation, log/URL/LLM-prompt exposure control, leak runbook, and credential inventory. Integrates with lyra-security-appsec, lyra-security-supply-chain, lyra-ci-cd-automation, lyra-podman-deploy.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

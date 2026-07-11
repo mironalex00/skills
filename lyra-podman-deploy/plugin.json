@@ -1,0 +1,12 @@
+{
+  "name": "lyra-podman-deploy",
+  "version": "1.0.0",
+  "description": "Deploying containers with Podman on systemd hosts: quadlet units, rootless defaults, health-gated startup (Notify=healthy), auto-update with automatic rollback, digest-pinned releases, pods, networks, SELinux-aware volumes, file-mounted secrets, and resource limits — with worked quadlet stacks and a debug checklist. Integrates with lyra-podman-images, lyra-ci-cd-automation, lyra-security-containers.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

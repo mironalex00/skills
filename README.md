@@ -12,7 +12,7 @@ A skill is a packaged capability for an AI agent — a `SKILL.md` file with inst
 
 Raw prompts are brittle. You write a great prompt for one task, forget it, and reinvent it next time. **Skills fix this**: they capture expertise in a reusable, composable format. The collection exists so that instead of prompting from scratch every time, you invoke a specialist that already knows the domain — prompt optimization, TDD, clean architecture, debugging, database engineering, and twelve others.
 
-The thesis: composable, portable, expertise-encoded units beat brittle one-shot prompting. Each skill makes the others more valuable. The fifteen skills in this collection were built or curated to chain behind Lyra: Lyra plans, a specialist executes, Lyra verifies.
+The thesis: composable, portable, expertise-encoded units beat brittle one-shot prompting. Each skill makes the others more valuable. The twenty-five skills in this collection were built or curated to chain behind Lyra: Lyra plans, a specialist executes, Lyra verifies — and every one also works standalone.
 
 ---
 
@@ -43,7 +43,7 @@ The thesis: composable, portable, expertise-encoded units beat brittle one-shot 
 
 ## Composability: the real unlock
 
-Skills compose. This is the flywheel: each skill makes the others more valuable. The collection isn't isolated tools — it's a toolkit where the parts fit together. The twelve code skills were designed to chain behind Lyra: Lyra plans, a specialist executes, Lyra verifies.
+Skills compose. This is the flywheel: each skill makes the others more valuable. The collection isn't isolated tools — it's a toolkit where the parts fit together. Every specialist skill was designed to chain behind Lyra — Lyra plans, a specialist executes, Lyra verifies — and each is equally usable on its own, invoked directly.
 
 **Example chain:**
 
@@ -54,6 +54,18 @@ Skills compose. This is the flywheel: each skill makes the others more valuable.
     - runs the pre-merge checklist before declaring done
     
 One prompt, multiple skills involved, one finished feature. That's the promise.
+
+### Golden paths
+
+The delivery and security skills form ordered chains — each hand-off is a real cross-reference inside the skills, not a suggestion:
+
+| Goal | Chain |
+|---|---|
+| Containerize an app | `lyra-podman-images` (build) → `lyra-security-containers` (harden) → `lyra-podman-deploy` (run) |
+| Ship it continuously | `lyra-ci-cd-automation` (gates, digest promotion, signing) → `lyra-podman-deploy` (auto-update or digest rewrite) → `lyra-security-supply-chain` (SBOM, verification, policy.json) |
+| Security review a service | `lyra-security-appsec` (source→sink walk) → `lyra-bug-hunter --scan-only` (verify findings) → `lyra-security-secrets` (credential surface) |
+| Clean up after AI-assisted work | `lyra-de-slop` (diff-scoped sweep) → `lyra-code-review` (pre-merge gate) |
+| Keep a long-running agent efficient | `lyra-context-optimization` (budgets, caching, filesystem memory) → `lyra-council` (when a real decision surfaces) |
 
 ---
 
@@ -91,6 +103,11 @@ This consistency is what makes skills composable: any skill can reference any ot
 
 This is a beginning, not a ceiling. New skills get added as new domains, platforms, and workflows are encoded. The bar for inclusion: a skill must do one thing well, follow the standard format, ship an `AGENTS.md` maintenance contract, and compose cleanly with the rest of the collection.
 
+Two maintenance notes that keep the collection trustworthy:
+
+- **Routing:** several `lyra-*` skills supersede older, unprefixed skills of the same name that may exist in a host project's skill directory (`bug-hunter`, `de-slop`, `context-optimization`, `ci-cd-and-automation`). When both are installed, invoke the `lyra-*` version — it is the maintained one; consider removing the twins from host projects to keep agents from routing to stale guidance.
+- **Self-verification:** `tools/validate-suite.mjs` checks structure, frontmatter, plugin metadata, inter-skill rule references, and catalog links for every skill — run it after any edit. Execution smoke tests (building the reference Containerfiles, `systemd-analyze --user verify` on generated quadlet units, actionlint on workflow snippets) are the declared next step; until they exist, treat code blocks as reviewed, not machine-verified.
+
 ---
 
 ## The complete catalog
@@ -101,12 +118,15 @@ This is a beginning, not a ceiling. New skills get added as new domains, platfor
 |---|---:|
 | [Prompt & Code Engineering](#prompt--code-engineering) | 1 |
 | [Code Quality & Architecture](#code-quality--architecture) | 4 |
-| [Debugging & Analysis](#debugging--analysis) | 2 |
+| [Debugging & Analysis](#debugging--analysis) | 3 |
 | [Implementation Specializations](#implementation-specializations) | 4 |
 | [Operations & Performance](#operations--performance) | 2 |
+| [Containers & Delivery](#containers--delivery) | 3 |
+| [Security](#security) | 4 |
+| [Agent Efficiency & Hygiene](#agent-efficiency--hygiene) | 2 |
 | [Documentation](#documentation) | 1 |
 | [Deliberation](#deliberation) | 1 |
-| **Total** | **15** |
+| **Total** | **25** |
 
 ### Prompt & Code Engineering
 
@@ -125,10 +145,11 @@ This is a beginning, not a ceiling. New skills get added as new domains, platfor
 
 ### Debugging & Analysis
 
-*2 skills*
+*3 skills*
 
 - **[lyra-debug](./lyra-debug/SKILL.md)** — Scientific-method debugging: hypothesize, test one change, conclude. Anti-tunnel-vision and anti-shotgun-debugging built in.
 - **[lyra-analyze-codebase](./lyra-analyze-codebase/SKILL.md)** — Read-only codebase analysis with a structured report. Run before any refactor.
+- **[lyra-bug-hunter](./lyra-bug-hunter/SKILL.md)** — Adversarial bug hunting: Recon → Hunter → Skeptic → Referee, every finding needs a runtime trigger, confirmed bugs fixed one verified commit at a time. Scopes to tree, path, branch diff, PR, or staged files.
 
 ### Implementation Specializations
 
@@ -145,6 +166,30 @@ This is a beginning, not a ceiling. New skills get added as new domains, platfor
 
 - **[lyra-performance](./lyra-performance/SKILL.md)** — Measurement-first optimization across the full stack. No change without a baseline number.
 - **[lyra-ci-cd](./lyra-ci-cd/SKILL.md)** — CI/CD pipelines that are fast, safe, and reversible. All three required; pick two and you've picked none.
+
+### Containers & Delivery
+
+*3 skills*
+
+- **[lyra-podman-images](./lyra-podman-images/SKILL.md)** — Minimal, fast, reproducible images with Podman/Buildah: multi-stage, digest-pinned bases down to scratch/distroless, cache and secret mounts, multi-arch manifests, registry layer cache. Canonical Node/pnpm, Go, and Python Containerfiles included.
+- **[lyra-podman-deploy](./lyra-podman-deploy/SKILL.md)** — Deploying with Podman on systemd hosts: quadlets as the deployment unit, rootless defaults, health-gated startup, auto-update with automatic rollback, digest-pinned releases, pods, secrets, limits.
+- **[lyra-ci-cd-automation](./lyra-ci-cd-automation/SKILL.md)** — 2026 pipelines, Podman-native: cost-ordered blocking gates, SHA-pinned actions with OIDC, registry layer cache, build-once/promote-by-digest with cosign sign-and-verify, tested sub-five-minute rollback, telemetry.
+
+### Security
+
+*4 skills*
+
+- **[lyra-security-appsec](./lyra-security-appsec/SKILL.md)** — Application security on the source-to-sink model: boundary validation, parameterized sinks, deny-by-default object-level authorization, SSRF/upload defenses, fail-closed errors, and an exploitability-ranked review methodology.
+- **[lyra-security-supply-chain](./lyra-security-supply-chain/SKILL.md)** — Supply-chain defense by mechanism: enforced lockfiles, contained install scripts, release-age cooldown, SBOMs, keyless signing with deploy-time verification, hardened CI, and the compromise drill.
+- **[lyra-security-containers](./lyra-security-containers/SKILL.md)** — Container runtime hardening: rootless + non-root layering, cap-drop=all, read-only rootfs, seccomp/SELinux kept enforcing, no socket mounts, and a diagnose-don't-disable debugging ladder.
+- **[lyra-security-secrets](./lyra-security-secrets/SKILL.md)** — Secrets lifecycle: never in git (rotate before cleanup), three-layer scanning, storage hierarchy, OIDC identities over static keys, issuance-time scoping, rehearsed rotation, leak runbook, inventory.
+
+### Agent Efficiency & Hygiene
+
+*2 skills*
+
+- **[lyra-context-optimization](./lyra-context-optimization/SKILL.md)** — Token-efficiency tactics for LLM agents: cache-stable prefixes, observation masking, threshold-gated compaction, just-in-time retrieval, sub-agent partitioning — measurement-first with numeric targets.
+- **[lyra-de-slop](./lyra-de-slop/SKILL.md)** — Removes AI-generation artifacts from code and prose without changing behavior. Diff-scoped by default, typecheck + test verified after every sweep.
 
 ### Documentation
 

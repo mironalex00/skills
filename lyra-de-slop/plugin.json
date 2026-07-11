@@ -1,0 +1,12 @@
+{
+  "name": "lyra-de-slop",
+  "version": "1.0.0",
+  "description": "Behavior-preserving removal of AI-generation artifacts from code (narration comments, any-casts, dead code, debug statements, defensive theater, over-abstraction, over-nesting) and prose (AI-register docs, emoji headers, padded changelogs). Diff-scoped by default, typecheck+test verified. Composes with lyra-clean-code and lyra-bug-hunter.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

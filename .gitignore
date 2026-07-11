@@ -1,0 +1,10 @@
+# Runtime memory written by lyra skills (council sessions, bug-hunter state).
+# Always local to the machine — never part of the published collection.
+.lyra/
+
+# Working documents for in-flight tasks. Not deliverables.
+plan/
+
+# OS noise
+Thumbs.db
+.DS_Store

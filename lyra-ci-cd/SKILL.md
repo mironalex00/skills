@@ -8,6 +8,8 @@ compatibility: "No tools required. Optional: CI platform CLI (gh, glab, circleci
 
 ## What it does
 
+> **Successor note:** for containerized stacks, [`lyra-ci-cd-automation`](../lyra-ci-cd-automation/SKILL.md) restates these core rules in their current form (actions pinned by commit SHA, OIDC, digest promotion, signing) and supersedes this skill where the two disagree — e.g. prefer SHA pins over the `@v4` tags shown in the examples below. Reach for this skill for deliberately minimal, non-container pipelines.
+
 CI/CD pipeline rules that hold across GitHub Actions, GitLab CI, and CircleCI. The pipeline is the source of truth: stages gate each other in cost order, quality gates block merge, promotion moves one artifact through dev → staging → prod, and every deploy has a tested rollback. Caching and parallelization keep the loop fast; secrets stay out of code and logs. The three Lyra gate skills plug in as non-optional stages.
 
 | Gate   | Lyra skill         | Stage                  | Blocks merge when                                           |

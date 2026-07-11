@@ -1,0 +1,12 @@
+{
+  "name": "lyra-security-appsec",
+  "version": "1.0.0",
+  "description": "Application security as coding rules on the source-to-sink model: trust-boundary validation, parameterized sinks (SQLi/command/path/XSS/SSTI), deny-by-default object-level authorization, solved-problem auth, SSRF and upload defenses, fail-closed errors, security headers, and an exploitability-ranked review methodology. Integrates with lyra-bug-hunter, lyra-security-secrets, lyra-security-supply-chain, lyra-security-containers.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

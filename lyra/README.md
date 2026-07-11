@@ -6,3 +6,6 @@ Turns vague requests into precision prompts for any AI model, and produces plan-
 **Don't:** one-off trivial tasks where finding the skill takes longer than doing the task.
 
 _Ships with the [skill collection](../README.md) — skills so you never have a missing dependency._
+---
+
+_Part of the [skill collection](../README.md)._

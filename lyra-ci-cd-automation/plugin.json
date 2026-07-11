@@ -1,0 +1,12 @@
+{
+  "name": "lyra-ci-cd-automation",
+  "version": "1.0.0",
+  "description": "Fast, safe, reversible CI/CD pipelines (2026): cost-ordered blocking gates, SHA-pinned actions with least-privilege OIDC, deterministic caching, rootless Podman builds with registry layer cache, build-once/promote-by-digest with cosign sign-and-verify, artifact scan gates with SBOMs, tested sub-five-minute rollback, and pipeline telemetry. Integrates with lyra-podman-images, lyra-podman-deploy, lyra-security-supply-chain.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

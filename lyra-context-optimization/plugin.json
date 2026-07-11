@@ -1,0 +1,12 @@
+{
+  "name": "lyra-context-optimization",
+  "version": "1.0.0",
+  "description": "Token-efficiency tactics for LLM agents: prompt-cache-stable prefixes, observation masking, threshold-gated compaction, just-in-time retrieval, sub-agent partitioning, and explicit context budgets — all measurement-first with numeric targets. Composes with lyra-council and lyra-docs.",
+  "author": {
+    "name": "Alexandru Miron",
+    "email": "miron.alexandru.00@gmail.com",
+    "url": "https://github.com/mironalex00/skills"
+  },
+  "license": "MIT",
+  "skills": "."
+}

@@ -59,7 +59,7 @@ These live in `./.claude/skills/` (or `.agents/skills/`, `.cursor/skills/` — w
 | [`debug`](../debug)                               | Systematic debugging of bugs/failures/regressions | Reproducible feedback loops, hypothesis testing, regression tests |
 | [`debugging-strategies`](../debugging-strategies) | Profiling tools, root cause analysis              | Systematic techniques across stacks                               |
 | [`debug-tools`](../debug-tools)                   | Iterative debugging with confidence scoring       | Log injection, auto-cleanup, escalation patterns                  |
-| [`bug-hunter`](../bug-hunter)                     | Adversarial bug hunting                           | Sequential pipeline (Recon → Hunter → Skeptic → Referee)          |
+| [`lyra-bug-hunter`](../lyra-bug-hunter)           | Adversarial bug hunting (2026 sibling; supersedes the host-project `bug-hunter`) | Sequential pipeline (Recon → Hunter → Skeptic → Referee) |
 | [`analyze-codebase`](../analyze-codebase)         | Architecture/security/perf/quality audit          | Comprehensive codebase analysis before refactoring                |
 | [`analyze-project`](../analyze-project)           | Read-only deep inspection of a repo               | Model structure, training/inference entrypoints                   |
 
@@ -67,15 +67,15 @@ These live in `./.claude/skills/` (or `.agents/skills/`, `.cursor/skills/` — w
 
 | Skill                                                     | Invoke when                                  | What it gives you                           |
 | --------------------------------------------------------- | -------------------------------------------- | ------------------------------------------- |
-| [`ci-cd-and-automation`](../ci-cd-and-automation)         | CI/CD pipeline setup, quality gates          | Build/deploy automation, test runners in CI |
+| [`lyra-ci-cd-automation`](../lyra-ci-cd-automation)       | CI/CD pipeline setup, quality gates (2026 sibling; supersedes the host-project `ci-cd-and-automation`) | Container-native build/deploy automation, gates, signing |
 | [`performance-expert`](../performance-expert)             | Perf optimization (frontend render, API, DB) | React/Next/Nest perf patterns               |
 | [`performance-optimization`](../performance-optimization) | Core Web Vitals, load times, profiling       | Bottleneck identification                   |
 
 ---
 
-## The twelve sibling skills
+## The sibling skills
 
-Lyra composes with twelve sibling skills in the same `/skills/` directory. Each was built via LLM Council deliberation. Invoke them directly or let Lyra orchestrate.
+Lyra composes with the sibling skills in the same `/skills/` directory. Each was built via LLM Council deliberation. Invoke them directly or let Lyra orchestrate — every sibling works standalone and integrates behind Lyra.
 
 | Skill                                                   | What it does                                                                                                                                 | When Lyra invokes it                                          |
 | ------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
@@ -93,6 +93,16 @@ Lyra composes with twelve sibling skills in the same `/skills/` directory. Each 
 | [`lyra-database`](../lyra-database)                     | Postgres, MySQL, SQLite — schema, queries, transactions, migrations                                                                          | Any database work                                             |
 | [`lyra-docs`](../lyra-docs)                             | Code documentation generator. Writes `docs/` with a directory tree, index, and per-module docs. Every claim cites file:line.                 | Generating or refreshing project documentation                |
 | [`lyra-council`](../lyra-council)                       | Five-advisor deliberation engine. Spawns five subagents in parallel, peer-reviews, chairman synthesizes. Sessions saved to `.lyra/council/`. | Decisions where being wrong is expensive                      |
+| [`lyra-bug-hunter`](../lyra-bug-hunter)                 | Adversarial bug hunting: Recon → Hunter → Skeptic → Referee with evidence discipline and verified one-commit fixes                           | Behavior-focused audits, PR reviews, pre-merge regression checks |
+| [`lyra-context-optimization`](../lyra-context-optimization) | Token-efficiency tactics: cache-stable prefixes, observation masking, compaction, JIT retrieval, partitioning                            | Long-running agent design, token costs, context-limit pressure |
+| [`lyra-de-slop`](../lyra-de-slop)                       | Removes AI-generation artifacts from code and prose, diff-scoped, typecheck+test verified                                                    | After AI-assisted work, before opening a PR                   |
+| [`lyra-podman-images`](../lyra-podman-images)           | Minimal, fast, reproducible images: multi-stage, digest pins, cache/secret mounts, multi-arch, registry cache                                | Writing or optimizing any Containerfile                       |
+| [`lyra-podman-deploy`](../lyra-podman-deploy)           | Quadlet-based deployment: rootless, health-gated startup, auto-update with rollback, digest releases                                         | Deploying services on a systemd host                          |
+| [`lyra-ci-cd-automation`](../lyra-ci-cd-automation)     | 2026 container-native pipelines: blocking gates, OIDC, digest promotion, cosign sign-and-verify, tested rollback                             | Pipeline setup for containerized stacks; extends `lyra-ci-cd` |
+| [`lyra-security-appsec`](../lyra-security-appsec)       | Source-to-sink application security: boundary validation, parameterized sinks, object-level authz, review methodology                       | Code touching user input, auth, or money; security reviews    |
+| [`lyra-security-supply-chain`](../lyra-security-supply-chain) | Dependency and build integrity: lockfiles, cooldown, SBOMs, signing with verification, CI hardening, compromise drill                  | Adding/updating dependencies, release integrity, CVE response |
+| [`lyra-security-containers`](../lyra-security-containers) | Runtime hardening: rootless+non-root, cap-drop, read-only rootfs, seccomp/SELinux kept on, no socket mounts                                | Hardening container deployments, reviewing run flags/quadlets |
+| [`lyra-security-secrets`](../lyra-security-secrets)     | Secrets lifecycle: never in git, three-layer scanning, storage hierarchy, OIDC identities, rotate-first leak runbook                         | Handling credentials anywhere in the stack                    |
 
 Each skill follows the same standard format (`SKILL.md` + `AGENTS.md` + `plugin.json` + `README.md` + optional `references/`).
 
@@ -144,5 +154,11 @@ User: "This function returns wrong results intermittently"
 | API design                       | `api-design-expert` → Lyra plan → `lyra-tdd` → `lyra-code-review`                           |
 | Performance work                 | `analyze-codebase` → `performance-expert` → Lyra plan → `lyra-tdd` (benchmarks as tests)    |
 | E2E test suite                   | `e2e-testing` → Lyra plan → write tests                                                     |
+| Bug hunt / behavior audit        | `lyra-bug-hunter` → `lyra-tdd` (regression tests for confirmed bugs) → `lyra-code-review`   |
+| Cleanup after AI-assisted work   | `lyra-de-slop` (diff-scoped) → `lyra-code-review`                                           |
+| Containerize an app              | `lyra-podman-images` → `lyra-security-containers` → `lyra-podman-deploy`                    |
+| Ship a containerized service     | `lyra-ci-cd-automation` → `lyra-podman-images` → `lyra-podman-deploy` → `lyra-security-supply-chain` |
+| Security review                  | `lyra-security-appsec` → `lyra-bug-hunter --scan-only` → `lyra-security-secrets` (if credentials involved) |
+| Agent/LLM pipeline efficiency    | `lyra-context-optimization` → `evaluation` (measure the effect)                             |
 
 **Rule of thumb:** if a task spans more than one file, start with a Lyra plan. If a task touches code, end with `lyra-code-review`. If a task writes code, middle is `lyra-tdd`.

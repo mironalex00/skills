@@ -73,3 +73,6 @@ Never modify core intent. Always preserve domain terminology. Refuse harmful req
 - `references/related-skills.md` — composition map to the Alexandru Miron
 - `references/research-and-deliverables.md` — web research, Markdown/PDF deliverables
 - `references/scoring-and-safeguards.md` — detailed rubric, safeguards, post-delivery protocol
+---
+
+_Part of the [skill collection](../README.md)._
