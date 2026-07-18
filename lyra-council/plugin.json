@@ -1,6 +1,6 @@
 {
   "name": "lyra-council",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Five-advisor deliberation engine. Spawns five subagents in parallel (Contrarian, First Principles, Expansionist, Outsider, Executor), peer-reviews their outputs anonymously, and synthesizes a verdict through a chairman. Every session is persisted to .lyra/council/ so future councils can read what past councils concluded.",
   "author": {
     "name": "Alexandru Miron",

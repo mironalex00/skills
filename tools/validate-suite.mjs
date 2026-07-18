@@ -9,7 +9,8 @@
  *  - both SKILL.md and README.md carry the collection footer
  *  - every "lyra-<skill> rule N" cross-reference resolves to a real "### N." heading
  *  - every relative link in the root README catalog resolves to a file
- *  - .lyra/council session files (if any) parse as JSON
+ *  - .lyra/council store (if any) follows the v2 schema: Markdown sessions with
+ *    flat frontmatter, a ledger.md digest per session, no unmigrated JSON-era files
  *
  * Exit code 0 = all checks pass; 1 = failures printed to stdout.
  * Declared next step (not yet implemented): execution smoke tests — build the
@@ -71,11 +72,28 @@ for (const m of readme.matchAll(/\]\(\.\/([^)#]+)\)/g)) {
   if (!fs.existsSync(path.join(root, m[1]))) fail(`README.md: broken link ./${m[1]}`);
 }
 
-const sessions = path.join(root, ".lyra", "council", "sessions");
+const council = path.join(root, ".lyra", "council");
+const sessions = path.join(council, "sessions");
 if (fs.existsSync(sessions)) {
+  const ledgerPath = path.join(council, "ledger.md");
+  const ledger = fs.existsSync(ledgerPath) ? fs.readFileSync(ledgerPath, "utf8") : null;
+  if (ledger === null) fail(".lyra/council: sessions exist but ledger.md is missing");
+  if (fs.existsSync(path.join(council, "index.jsonl"))) fail(".lyra/council: JSON-era index.jsonl not migrated");
   for (const f of fs.readdirSync(sessions)) {
-    try { JSON.parse(fs.readFileSync(path.join(sessions, f), "utf8")); }
-    catch (e) { fail(`.lyra/council/sessions/${f}: unparsable (${e.message})`); }
+    const fp = path.join(sessions, f);
+    if (!fs.statSync(fp).isFile()) continue;
+    if (f.endsWith(".json")) { fail(`.lyra/council/sessions/${f}: JSON-era session not migrated`); continue; }
+    if (!f.endsWith(".md")) continue;
+    const t = fs.readFileSync(fp, "utf8");
+    if (!t.startsWith("---")) { fail(`.lyra/council/sessions/${f}: missing frontmatter`); continue; }
+    const fmEnd = t.indexOf("\n---", 3);
+    const fm = fmEnd === -1 ? "" : t.slice(0, fmEnd + 1);
+    for (const field of ["id: ", "schema: ", "date: ", "topic: ", "tags: "]) {
+      if (!fm.includes("\n" + field)) fail(`.lyra/council/sessions/${f}: frontmatter missing "${field.trim()}"`);
+    }
+    const id = fm.match(/\nid: (\S+)/)?.[1];
+    if (id && f !== id + ".md") fail(`.lyra/council/sessions/${f}: id "${id}" != filename`);
+    if (ledger && id && !new RegExp(`^### ${id}$`, "m").test(ledger)) fail(`.lyra/council/sessions/${f}: no ledger block for ${id}`);
   }
 }
 

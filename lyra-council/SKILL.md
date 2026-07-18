@@ -12,7 +12,7 @@ Runs a decision through five advisors who think from different angles, then synt
 
 The council is for decisions where being wrong is expensive: a launch, a pivot, a hire, a refactor strategy. It is wasted on questions with one right answer, on creation tasks, or on casual validation seeking.
 
-Every session is saved to `.lyra/council/sessions/` as JSON. Before convening, the skill reads past sessions whose tags or topic overlap and feeds their verdicts to the advisors. The second council on pricing knows what the first concluded.
+Every session is saved to `.lyra/council/sessions/` as Markdown — flat frontmatter for the queryable fields, verbatim prose for the deliberation — with a permanent append-only digest ledger at `.lyra/council/ledger.md` that doubles as the index. The store is local runtime state: the skill keeps it git-ignored and refuses to write where `.lyra/` is tracked. Before convening, the skill greps the ledger for past sessions whose tags or topic overlap and feeds their verdicts to the advisors. The second council on pricing knows what the first concluded.
 
 ## When to convene
 
@@ -21,13 +21,15 @@ Convene when the user faces a genuine decision with stakes, multiple options, an
 ## The workflow
 
 1. Frame the question. Read the user's raw question. Scan the workspace for context — `CLAUDE.md`, `memory/`, files the user referenced. Reframe as a neutral prompt all five advisors receive. Include the core decision, the key context, and what is at stake. No opinion from you.
-2. Query memory. Read `.lyra/council/index.jsonl`. Find sessions with overlapping tags or topic. Pull their verdicts and first actions into the framed question as prior-session notes.
+2. Query memory. Grep `.lyra/council/ledger.md` for sessions with overlapping tags or topic. Pull their recommendations and first actions into the framed question as prior-session notes. If the store still holds the JSON-era schema (an `index.jsonl` exists), run the one-time migration in `references/memory-schema.md` first.
 3. Spawn five advisors in parallel. Use the Task tool, one subagent per advisor. Each gets its persona, the framed question, prior-session notes, and the instruction to lean fully into its angle without hedging. Personas live in `references/advisor-personas.md`. The spawn template is below.
 4. Collect responses. Wait for all five. If one times out, note it and proceed with four. Never synthesize with fewer than four.
 5. Peer review. Anonymize responses as A through E with a randomized mapping. Spawn five reviewer subagents in parallel. Each sees all five anonymized responses and answers three questions: which is strongest and why, which has the biggest blind spot, what did all five miss. The protocol is in `references/peer-review-protocol.md`.
 6. Chairman synthesis. One agent gets the framed question, all five de-anonymized responses, and all five peer reviews. It produces the verdict using the format below. The chairman may side with a minority if the reasoning supports it.
-7. Present the verdict in chat.
-8. Save the session. Write the full record to `.lyra/council/sessions/{id}.json` and append a line to `.lyra/council/index.jsonl`.
+7. Save the session. Run the git guard first (`references/memory-schema.md`): ensure `.lyra/` is ignored, and stop — reporting the untrack commands, never running them — if `.lyra/` is tracked. Then write the full record to `.lyra/council/sessions/{id}.md` and append the session's digest block to `.lyra/council/ledger.md`. Both writes must succeed before the verdict is presented as final.
+8. Present the verdict in chat.
+
+A caller may explicitly request a condensed round — five advisors and chairman synthesis, no peer-review round — for plan gates and other low-stakes checkpoints. The session declares the deviation in its Peer review section, and a condensed verdict carries less weight than a full-protocol one; decisions with real stakes get the full protocol.
 
 ## The advisor spawn
 
@@ -78,18 +80,18 @@ The chairman receives the framed question, the five de-anonymized advisor respon
 
 ## Memory
 
-Sessions live under `.lyra/council/`:
+Sessions live under `.lyra/council/` — local runtime state, never committed:
 
 ```
 .lyra/council/
 ├── sessions/
-│   └── council-{YYYY-MM-DD-HHMM}-{shortid}.json
-└── index.jsonl
+│   └── council-{YYYY-MM-DD-HHMM}-{shortid}.md
+└── ledger.md
 ```
 
-Each session file is the full record: framed question, raw question, context files read, five advisor responses, five peer reviews, the verdict, tags, and references to prior session IDs. The index is append-only, one JSON line per session with `{id, timestamp, topic, tags, recommendation, first_action, references}`. The full schema and query patterns are in `references/memory-schema.md`.
+Each session file is the full record in Markdown: flat single-line frontmatter for the queryable fields (id, date, topic, tags, refs, advisor set), then verbatim prose under fixed headings — question, the five advisor responses de-anonymized, the peer reviews with their `Mapping:` line, the verdict. `ledger.md` is the permanent tier and the only index: an append-only digest block per session (topic, tags, recommendation, first action, one clause per advisor) plus lifecycle events. An LLM reads and writes both directly — no parsing, no escaping — and a human opens them and reads a document. The full schema, the git guard, query patterns, and the JSON-era migration are in `references/memory-schema.md`.
 
-Sessions are never edited. If a decision is revisited, a new session is written that references the prior one in its `references` field. The chain is the audit trail.
+Write-once governs content: session files and ledger blocks are never edited. It does not promise a body lives forever — once the global task that convened a council is settled, the owner may prune full session bodies; each pruned file leaves a `pruned` event in the ledger, and its digest, permanent since save time, remains the record. Pruning never runs on an inferred "task finished" signal: the skill proposes, the owner confirms. If a decision is revisited, a new session references the prior one in `refs:`. The ledger chain is the audit trail.
 
 ## Composes with
 

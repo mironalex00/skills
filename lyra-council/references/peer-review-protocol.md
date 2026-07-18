@@ -6,7 +6,7 @@ The peer review round is what makes the council more than "ask five times and av
 
 After all five advisor responses are collected, assign each a letter A through E. The mapping must be randomized per session, not positional. A fixed mapping (always Contrarian = A, First Principles = B, ...) lets reviewers infer the source from the angle, which defeats the point.
 
-A simple shuffle: take the five advisor keys, generate a random permutation, assign letters in permutation order. Record the mapping in the session file under `anonymization_map` so the chairman can de-anonymize later.
+A simple shuffle: take the five advisor keys, generate a random permutation, assign letters in permutation order. Record the mapping on the `Mapping:` line of the session file's Peer review section so the chairman can de-anonymize later.
 
 The reviewers never see the mapping. The chairman sees it.
 
@@ -67,9 +67,9 @@ Reviewers must not invent a sixth angle. Their job is to evaluate the five respo
 
 ## Handling timeouts and short rounds
 
-If an advisor timed out in step 4, the round has four responses, not five. Anonymize as A through D, and adjust the reviewer prompt accordingly. Note the timeout in the session file (`advisors.{name}.timed_out: true`).
+If an advisor timed out in step 4, the round has four responses, not five. Anonymize as A through D, and adjust the reviewer prompt accordingly. Note the timeout in the session file: the advisor's section keeps its heading with the single line `_Timed out._`
 
-If two or more advisors timed out, the round is too thin to peer-review meaningfully. Do not proceed to synthesis. Tell the user the council could not convene a full round, save a partial session file marked `"incomplete": true`, and stop. A partial council is worse than no council — it produces a confident-sounding verdict from an incomplete picture.
+If two or more advisors timed out, the round is too thin to peer-review meaningfully. Do not proceed to synthesis. Tell the user the council could not convene a full round, save a partial session file with `incomplete: true` in its frontmatter, and stop. A partial council is worse than no council — it produces a confident-sounding verdict from an incomplete picture.
 
 ## What the chairman does with the reviews
 

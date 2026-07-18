@@ -4,7 +4,7 @@ Runs a decision through five advisors who think from different angles, then synt
 
 The five advisors are fixed: the Contrarian finds flaws, the First Principles thinker strips to fundamentals, the Expansionist finds upside, the Outsider catches the curse of knowledge, the Executor names the concrete first step.
 
-Every session is saved to `.lyra/council/sessions/` as JSON, with an append-only index at `.lyra/council/index.jsonl`. Before convening, the skill reads past sessions whose tags or topic overlap and feeds their verdicts to the advisors. The second council on pricing knows what the first concluded.
+Every session is saved to `.lyra/council/sessions/` as Markdown (flat frontmatter + verbatim prose), with a permanent append-only digest ledger at `.lyra/council/ledger.md` that doubles as the index. The store is local runtime state: the skill keeps it git-ignored, refuses to write where `.lyra/` is tracked, and full session bodies can be pruned after a task settles because every digest is permanent from save time. Before convening, the skill greps the ledger for past sessions whose tags or topic overlap and feeds their verdicts to the advisors. The second council on pricing knows what the first concluded.
 
 **Reach for it when:** a decision with stakes, multiple options, and genuine uncertainty — a launch, a pivot, a hire, a refactor strategy, a contested architectural call.
 **Don't:** factual lookups, creation tasks, casual validation seeking, or anything with one right answer.
